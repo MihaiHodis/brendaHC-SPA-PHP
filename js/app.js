@@ -1,5 +1,6 @@
 // Așteaptă până când pagina este încărcată complet
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM complet încărcat"); // Ar trebui să apară în consolă
     // Fetch API pentru a obține datele din PHP
     fetch("php/api.php")
         .then(response => response.json()) // Convertim răspunsul în JSON
@@ -61,6 +62,59 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                 </div>`;
             container.innerHTML += pachetCard;
+        });
+    }
+    
+    // Validare formular de contact
+    const contactForm = document.getElementById('contact-form');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Oprește trimiterea tradițională a formularului
+            console.log('Formular trimis');
+
+            // Validare manuală
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !phone || !message) {
+                alert("Toate câmpurile sunt obligatorii!");
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Te rugăm să introduci o adresă de email validă!");
+                return;
+            }
+
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phone)) {
+                alert("Te rugăm să introduci un număr de telefon valid (10 cifre)!");
+                return;
+            }
+
+            console.log('Validare trecută. Se trimite prin AJAX...');
+
+            // Pregătire și trimitere AJAX
+            const formData = new FormData(contactForm);
+
+            fetch('php/contact.php', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log('Răspuns de la server:', data);
+                alert(data); // Mesaj de succes sau eroare de la server
+                contactForm.reset(); // Golește câmpurile formularului
+            })
+            .catch(error => {
+                console.error('Eroare la trimiterea formularului:', error);
+                alert('A apărut o eroare. Te rugăm să încerci din nou.');
+            });
         });
     }
 });
