@@ -1,0 +1,35 @@
+:root {
+    --color-crem: #ffe2ac;
+    --color-auriu: #d4af37;
+    --color-auriu-inchis: #b88a30;
+    --color-maro: #6e4e37;
+    --color-crem-deschis: #fdf5e6;
+    --color-roz: #d63384;
+    --color-roz-inchis: #a42661;
+    --color-gri-deschis: #f8f9fa;
+    --color-gri: #6c757d;
+    --color-negru-transparent: rgba(0, 0, 0, 0.5);
+    --color-negru-semi-transparent: rgba(0, 0, 0, 0.22);
+    --color-negru: black;
+    --color-alb: white;
+    --color-auriu-hsl: hsl(49, 100%, 63%);
+    --color-auriu-hsla: hsla(49, 100%, 63%, 0.672);
+}
+
+/* SECTIUNEA CONTACT */
+#contact {
+    background-color: var(--color-crem-deschis); /* Fundal deschis */
+    padding: 40px 0;
+  }
+  
+  #contact h2 {
+    color: var(--color-auriu); /* Asortează cu tema aplicației */
+    font-weight: bold;
+  }
+  
+  #contact .form-control {
+    border-radius: 0.5em;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+/* END SECTIUNEA CONTACT */

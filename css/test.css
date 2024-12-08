@@ -293,3 +293,33 @@ section {
   background-color: var(--color-auriu-hsl);
   transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
+
+/* SECTIUNEA CONTACT */
+#contact {
+  background-color: #f8f9fa; /* Fundal deschis */
+  padding: 40px 0;
+}
+
+#contact h2 {
+  color: var(--color-auriu); /* Asortează cu tema aplicației */
+  font-weight: bold;
+}
+
+#contact .form-control {
+  border-radius: 0.5em;
+  box-shadow: none;
+  border: 1px solid #ccc;
+}
+
+#contact .btn-primary {
+  background-color: var(--color-auriu);
+  border: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+#contact .btn-primary:hover {
+  background-color: var(--color-auriu-inchis);
+}
+/* END SECTIUNEA CONTACT */
+
